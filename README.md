@@ -12,7 +12,7 @@ Usage
 Setup volumes for exposing to your host. The actual NFS/SMB mounts must exist
 on your Docker host
 ```
-VOLUME [ "/config","/movies","/music","/pictures","/tv_shows","/videos"]
+VOLUME [ "/var/lib/plexmediaserver","/movies","/music","/pictures","/tv_shows","/videos"]
 ```
 Exposes the following ports
 * `1900/udp`
@@ -24,7 +24,7 @@ Exposes the following ports
 
 Spin up example:
 ```
-docker run --net=host -d -v plex_config:/config -v /mnt/movies:/movies -v /mnt/music:/music \
+docker run --net=host -d -v plex_config:/var/lib/plexmediaserver -v /mnt/movies:/movies -v /mnt/music:/music \
 -p 1900:1900/udp -p 5353:5353/udp -p 32400:32400 -p 32400:32400/udp -p 32469:32469 \
 -p 32469:32469/udp plex
 ```

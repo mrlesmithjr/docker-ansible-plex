@@ -5,7 +5,7 @@ services:
     image: plex
     network_mode: "host"
     volumes:
-      - "plex_config:/config"
+      - "plex_config:/var/lib/plexmediaserver"
       - "/mnt/movies:/movies"
       - "/mnt/music:/music"
       - "/mnt/pictures:/pictures"
