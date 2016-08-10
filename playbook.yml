@@ -4,7 +4,7 @@
   become: true
   vars:
     - plex_install_package: 'https://downloads.plex.tv/plex-media-server/{{ plex_version }}/plexmediaserver_{{ plex_version }}_amd64.deb'
-    - plex_version: '0.9.14.6.1620-e0b7243'
+    - plex_version: '1.0.3.2461-35f0caa'
   tasks:
     - name: Installing ca-certificates
       apt:
