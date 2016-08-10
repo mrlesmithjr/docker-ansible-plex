@@ -3,6 +3,7 @@ services:
   plex:
     build: ./
     image: plex
+    network_mode: "host"
     volumes:
       - "plex_config:/config"
       - "/mnt/movies:/movies"
