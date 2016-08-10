@@ -23,9 +23,11 @@ RUN apt-get -y clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Setup volumes for exposing to your host
-VOLUME [ "/config","/movies","/music","/pictures","/tv_shows","/videos"]
+VOLUME [ "/var/lib/plexmediaserver","/movies","/music","/pictures","/tv_shows","/videos"]
 
 #Mappings and ports
 EXPOSE 32400 32400/udp 32469 32469/udp 5353/udp 1900/udp
+
+USER plex
 
 CMD ["/usr/sbin/start_pms"]
