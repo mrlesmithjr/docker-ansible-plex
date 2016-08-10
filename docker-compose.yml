@@ -7,6 +7,8 @@ services:
       - "plex_config:/config"
       - "/mnt/movies:/movies"
       - "/mnt/music:/music"
+      - "/mnt/pictures:/pictures"
+      - "/mnt/tv_shows:/tv_shows"
     ports:
       - "1900:1900/udp"
       - "5353:5353/udp"
