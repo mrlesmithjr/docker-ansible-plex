@@ -1,6 +1,6 @@
 version: '2'
 services:
-  db:
+  plex:
     build: ./
     image: plex
     volumes:
