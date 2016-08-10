@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+  vars:
+    - plex_install_package: 'https://downloads.plex.tv/plex-media-server/{{ plex_version }}/plexmediaserver_{{ plex_version }}_amd64.deb'
+    - plex_version: '0.9.14.6.1620-e0b7243'
+  tasks:
+    - name: Installing ca-certificates
+      apt:
+        name: "ca-certificates"
+        state: "latest"
+
+    - name: Installing dumb-init
+      apt:
+        deb: "https://github.com/Yelp/dumb-init/releases/download/v1.0.2/dumb-init_1.0.2_amd64.deb"
+
+    - name: Installing Plex Pre-Reqs
+      apt:
+        name: "{{ item }}"
+        state: "present"
+      with_items:
+        - 'libavahi-common3'
+        - 'libavahi-core7'
+        - 'libdaemon0'
+        - 'libnss-mdns'
+        - 'libavahi-client3'
+        - 'libavahi-common3'
+        - 'avahi-daemon'
+        - 'avahi-utils'
+        - 'cifs-utils'
+
+    - name: Installing Plex
+      apt:
+        deb: "{{ plex_install_package }}"
+        state: "present"
