@@ -34,6 +34,13 @@ Docker-compose example:
 docker-compose up -d --build
 ```
 
+Spinning up straight from [Docker] hub.
+```
+docker run --net=host -d -v plex_config:/var/lib/plexmediaserver -v /mnt/movies:/movies -v /mnt/music:/music \
+-p 1900:1900/udp -p 5353:5353/udp -p 32400:32400 -p 32400:32400/udp -p 32469:32469 \
+-p 32469:32469/udp mrlesmithjr/plex
+```
+
 License
 -------
 
