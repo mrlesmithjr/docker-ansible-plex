@@ -28,6 +28,10 @@ VOLUME [ "/var/lib/plexmediaserver","/movies","/music","/pictures","/tv_shows","
 #Mappings and ports
 EXPOSE 32400 32400/udp 32469 32469/udp 5353/udp 1900/udp
 
+# Copy Startup Script
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
 USER plex
 
-CMD ["/usr/sbin/start_pms"]
+CMD ["/start.sh"]
