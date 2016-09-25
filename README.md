@@ -4,6 +4,7 @@ Builds a [Docker] image to run [Plex].
 
 Building
 --------
+If you need to build the image:
 ```
 docker build -t plex .
 ```
@@ -24,22 +25,22 @@ Exposes the following ports
 
 Spin up example:
 ```
-docker run --net=host -d -v plex_config:/var/lib/plexmediaserver -v /mnt/movies:/movies -v /mnt/music:/music \
--p 1900:1900/udp -p 5353:5353/udp -p 32400:32400 -p 32400:32400/udp -p 32469:32469 \
--p 32469:32469/udp plex
+docker run --net=host -d -v plex_config:/var/lib/plexmediaserver \
+  -v /mnt/movies:/movies -v /mnt/music:/music \
+  -p 1900:1900/udp -p 5353:5353/udp -p 32400:32400 \
+  -p 32400:32400/udp -p 32469:32469 \
+  -p 32469:32469/udp mrlesmithjr/plex
 ```
 
 Docker-compose example:
 ```
-docker-compose up -d --build
+docker-compose up -d
 ```
 
-Spinning up straight from [Docker] hub.
-```
-docker run --net=host -d -v plex_config:/var/lib/plexmediaserver -v /mnt/movies:/movies -v /mnt/music:/music \
--p 1900:1900/udp -p 5353:5353/udp -p 32400:32400 -p 32400:32400/udp -p 32469:32469 \
--p 32469:32469/udp mrlesmithjr/plex
-```
+Requirements:
+Ensure that your host has the correct mounts mounted as in the example above:
+- /mnt/movies
+- /mnt/music
 
 License
 -------

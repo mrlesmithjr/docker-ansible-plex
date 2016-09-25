@@ -1,8 +1,7 @@
 version: '2'
 services:
   plex:
-    build: ./
-    image: plex
+    image: mrlesmithjr/plex
     network_mode: "host"
     volumes:
       - "plex_config:/var/lib/plexmediaserver"
