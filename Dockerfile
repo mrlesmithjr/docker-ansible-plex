@@ -3,7 +3,7 @@ FROM mrlesmithjr/ubuntu-ansible:14.04
 MAINTAINER Larry Smith Jr. <mrlesmithjr@gmail.com>
 
 # Define Plex Version
-ENV PLEX_VERSION="1.1.4.2757-24ffd60"
+ENV PLEX_VERSION="1.3.3.3148-b38628e"
 
 # Copy Ansible Related Files
 COPY config/ansible/ /
